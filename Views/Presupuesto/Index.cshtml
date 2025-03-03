@@ -1,51 +1,53 @@
 @model List<Presupuesto>
 
-<div class="text-center">
-    <a asp-controller="Presupuesto" asp-action="NuevoPresupuesto" class="btn btn-success mb-2"> Nuevo presupuesto </a>
-</div>
-
-@{
-    ViewBag.Title = "Listado de Presupuestos";
-}
-
-<h2> @ViewBag.Title</h2>
-
-@if (Model != null && Model.Any())
+@if (ViewBag.ErrorMessage != null)
 {
-    <table class="table table-striped table-bordered table-hover">
-        <thead class="table-dark">
-            <tr>
-                <th> Cliente</th>
-                <th> Fecha de creacion </th>
-                <th> Acciones </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var presupuesto in Model)
-            {
-                <tr>
-                    @* <td>@(presupuesto.NombreDestinatario)</td> *@
-                    <td>@presupuesto.FechaCreacion</td>
-
-                    <td> <a asp-controller="Presupuesto" asp-action="ModificarPresupuesto" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-warning"> Editar </a> 
-
-                    <a asp-controller="Presupuesto" asp-action="AgregarProductoAPresupuesto" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-success">Agregar Producto</a>
-
-                    <a asp-controller="Presupuesto" asp-action="EliminarProductoAPresupuesto" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-danger"> Eliminar Producto</a>
-
-                    <a asp-controller="Presupuesto" asp-action="DetallesDelPresupuesto" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-info">Detalles</a>
-
-                    <a asp-controller="Presupuesto" asp-action="EliminarPresupuesto" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-danger">Eliminar</a>
-
-
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <div class="alert alert-warning" role="alert">
-        No hay presupuestos disponibles.
+    <div class="alert alert-danger text-center mb-4">
+        <p>@ViewBag.ErrorMessage</p>
     </div>
 }
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger text-center mb-4" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<h2 class="text-center text-primary mb-4">Presupuestos</h2>
+
+<div class="text-center mb-4">
+    @if ((bool)ViewData["EsAdmin"])
+    {
+        <a asp-controller="Presupuesto" asp-action="AltaPresupuesto" class="btn btn-success btn-lg rounded-pill px-4 py-2">Alta Presupuesto</a>
+    }
+</div>
+
+<table class="table table-striped table-hover table-bordered shadow-sm rounded">
+    <thead class="table-light">
+        <tr>
+            <th>Destinatario</th>
+            <th>Fecha de Creación</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var presupuesto in Model)
+        {
+            <tr>
+                <td>@presupuesto.Cliente.Nombre</td>
+                <td>@presupuesto.FechaCreacion.ToShortDateString()</td>
+                <td>
+                    <a asp-controller="Presupuesto" asp-action="DetallesDelPresupuesto" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-info btn-sm rounded-pill me-2">Detalles</a>
+                    @if ((bool)ViewData["EsAdmin"])
+                    {
+                        <a asp-controller="Presupuesto" asp-action="AgregarProductoAPresupuesto" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-success btn-sm rounded-pill me-2">Agregar Producto</a>
+                        <a asp-controller="Presupuesto" asp-action="EliminarProductoAPresupuesto" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-danger btn-sm rounded-pill me-2">Eliminar Producto</a>
+                        <a asp-controller="Presupuesto" asp-action="ModificarPresupuesto" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-warning btn-sm rounded-pill me-2">Editar</a>
+                        <a asp-controller="Presupuesto" asp-action="EliminarPresupuesto" asp-route-id="@presupuesto.IdPresupuesto" class="btn btn-danger btn-sm rounded-pill">Eliminar</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

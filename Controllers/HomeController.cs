@@ -1,8 +1,5 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-// using tl2_tp6_2024_yahel8666.Models;
-
-namespace tl2_tp6_2024_yahel8666.Controllers;
 
 public class HomeController : Controller
 {
@@ -15,11 +12,19 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        if (isLogged()) return RedirectToAction("Index", "Login");
         return View();
     }
 
+    private bool isLogged()
+    {
+        return !string.IsNullOrEmpty(HttpContext.Session.GetString("User"));
+    }
+
+
     public IActionResult Privacy()
     {
+        if (isLogged()) return RedirectToAction("Index", "Login");
         return View();
     }
 

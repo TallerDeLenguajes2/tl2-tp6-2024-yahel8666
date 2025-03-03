@@ -1,9 +1,16 @@
 @model Presupuesto
 
+@if (ViewBag.ErrorMessage != null)
+{
+        <div class="error-message">
+            <p>@ViewBag.ErrorMessage</p>
+        </div>
+}
+
 <div class="container mt-4">
     <div class="mb-4">
         <h2>Presupuesto</h2>
-        @* <p><strong>Nombre del Destinatario:</strong> @Model.NombreDestinatario</p> *@
+        <p><strong>Cliente:</strong> @Model.Cliente.Nombre</p>
         <p><strong>Fecha de Creación:</strong> @Model.FechaCreacion.ToString("dd/MM/yyyy")</p>
     </div>
     @if (Model.Detalle != null && Model.Detalle.Any())
@@ -47,7 +54,7 @@
     }
 
     <div class="text-center">
-        <a asp-controller="Presupuesto" asp-action="Index" class="btn btn-info">Ir al Inicio</a>
+        <a asp-controller="Presupuestos" asp-action="Index" class="btn btn-info">Ir al Inicio</a>
     </div>
 </div>
 

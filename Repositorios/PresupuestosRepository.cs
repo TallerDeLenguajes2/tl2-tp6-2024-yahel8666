@@ -1,10 +1,16 @@
+
 using Microsoft.Data.Sqlite;
-class PresupuestosRepository
+
+class PresupuestosRepository : IPresupuestoRepository
 {
+    private readonly string connectionString;
+    public PresupuestosRepository(string CadenaDeConexion)
+    {
+        connectionString = CadenaDeConexion;
+    }
+
     public void CrearPresupuesto(Presupuesto presupuesto)
     {
-
-        string connectionString = @"Data Source = BD/Tienda.db;Cache=Shared";
 
         string query = @"INSERT INTO Presupuestos (FechaCreacion, IdCliente) 
         VALUES (@fecha, @idC)";
@@ -23,7 +29,6 @@ class PresupuestosRepository
     public List<Presupuesto> ObtenerPresupuestos()
     {
         List<Presupuesto> presupuestos = new List<Presupuesto>();
-        string connectionString = @"Data Source = BD/Tienda.db;Cache=Shared";
 
         string query = @"SELECT 
             idPresupuesto,
@@ -68,7 +73,6 @@ class PresupuestosRepository
     public Presupuesto ObtenerPresupuestoPorId(int id)
     {
         Presupuesto presupuesto = null;
-        string connectionString = @"Data Source = BD/Tienda.db;Cache=Shared";
 
         string query = @"SELECT 
             P.idPresupuesto,
@@ -125,13 +129,15 @@ class PresupuestosRepository
             }
             connection.Close();
         }
+        if (presupuesto == null)
+        {
+            throw new Exception("Presupuesto inexistente");
+        }
         return presupuesto;
     }
 
     public void AgregarProducto(int idPresupuesto, int idProducto, int cantidad)
     {
-    
-        string connectionString = @"Data Source = BD/Tienda.db;Cache=Shared";
 
         string query =  $"INSERT INTO PresupuestosDetalle (idPresupuesto, idProducto, Cantidad) VALUES (@idPresu, @idProd, @cant) ON CONFLICT(idPresupuesto, idProducto) DO UPDATE SET Cantidad = Cantidad + @cant;";
 
@@ -148,7 +154,6 @@ class PresupuestosRepository
     }
     public void EliminarProducto(int idPresupuesto, int idProducto)
     {
-        string connectionString = @"Data Source = BD/Tienda.db;Cache=Shared";
 
         string query = @"DELETE FROM PresupuestosDetalle WHERE idPresupuesto = @idP AND idProducto = @idPR";
 
@@ -164,7 +169,7 @@ class PresupuestosRepository
     }
     public void ModificarPresupuesto(Presupuesto presupuesto)
     {
-        string connectionString = @"Data Source = BD/Tienda.db;Cache=Shared";
+        
         string query = @"UPDATE Presupuestos SET IdCliente = @idC, FechaCreacion = @fecha WHERE idPresupuesto = @Id";
 
         using (SqliteConnection connection = new SqliteConnection(connectionString))
@@ -177,13 +182,14 @@ class PresupuestosRepository
             command.ExecuteNonQuery();
             connection.Close();            
         }
+
+
     }
 
 
     public void EliminarPresupuestoPorId(int idPresupuesto)
     {
-        string connectionString = @"Data Source = BD/Tienda.db;Cache=Shared";
-
+    
         string query = @"DELETE FROM Presupuestos WHERE idPresupuesto = @IdP;";
         string query2 = @"DELETE FROM PresupuestosDetalle WHERE idPresupuesto = @Id;";
         using (SqliteConnection connection = new SqliteConnection(connectionString))
@@ -198,4 +204,5 @@ class PresupuestosRepository
             connection.Close();
         }
     }
+
 }

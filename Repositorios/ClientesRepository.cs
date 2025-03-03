@@ -1,37 +1,50 @@
 using Microsoft.Data.Sqlite;
 
-public class ClientesRepository
+public class ClientesRepository : IClientesRepository
 {
-    string connectionString;
+    private readonly ILogger<ClientesRepository> _logger;
+    private readonly string connectionString;
 
-    public ClientesRepository()
+    public ClientesRepository(string CadenaDeConexion)
     {
-        connectionString = @"Data Source = BD/Tienda.db;Cache=Shared";
+        connectionString = CadenaDeConexion;
     }
 
-    public void CreateCliente(Cliente cliente)
+    public void CrearCliente(Cliente cliente)
     {
-        string query = @"INSERT INTO Cliente (Nombre, Email, Telefono) VALUES (@nombre, @email, @telefono);";
-        using (SqliteConnection connection = new SqliteConnection(connectionString))
+        try
         {
-            connection.Open();
-            SqliteCommand command = new SqliteCommand(query, connection);
-            command.Parameters.AddWithValue("@nombre", cliente.Nombre);
-            command.Parameters.AddWithValue("@email", cliente.Email);
-            command.Parameters.AddWithValue("@telefono", cliente.Telefono);
-            command.ExecuteNonQuery();
-            connection.Close();
+            string query = @"INSERT INTO Cliente (Nombre, Email, Telefono) VALUES (@nombre, @email, @telefono);";
+
+            using (SqliteConnection connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                command.Parameters.AddWithValue("@nombre", cliente.Nombre);
+                command.Parameters.AddWithValue("@email", cliente.Email);
+                command.Parameters.AddWithValue("@telefono", cliente.Telefono);
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex.ToString());
+            throw new Exception();
         }
     }
 
-    public List<Cliente> GetAllClientes()
+    public List<Cliente> ObtenerClientes()
     {
         List<Cliente> clientes = new List<Cliente>();
+
         string query = "SELECT * FROM Cliente";
+
         using (SqliteConnection connection = new SqliteConnection(connectionString))
         {
             connection.Open();
             SqliteCommand command = new SqliteCommand(query, connection);
+
             using (SqliteDataReader reader = command.ExecuteReader())
             {
                 if (reader.HasRows)
@@ -46,15 +59,17 @@ public class ClientesRepository
                         clientes.Add(nuevoCliente);
                     }
                 }
+
             }
             connection.Close();
         }
         return clientes;
     }
 
-    public void UpdateCliente(Cliente cliente)
+    public void ModificarCliente(Cliente cliente)
     {
         string query = @"UPDATE Cliente SET Nombre = @nombre, Email = @email, Telefono = @telefono WHERE ClienteId = @Id;";
+
         using (SqliteConnection connection = new SqliteConnection(connectionString))
         {
             connection.Open();
@@ -66,12 +81,15 @@ public class ClientesRepository
             command.ExecuteNonQuery();
             connection.Close();
         }
+
     }
 
-    public Cliente GetCliente(int id)
+    public Cliente ObtenerCliente(int id)
     {
-        Cliente cliente = null; 
+        Cliente cliente = null; //Uso el null para devolver en caso de no encontrar nada
+
         string query = @"SELECT * FROM Cliente WHERE ClienteId = @id;";
+
         using (SqliteConnection connection = new SqliteConnection(connectionString))
         {
             connection.Open();
@@ -90,12 +108,16 @@ public class ClientesRepository
             }
             connection.Close();
         }
+        if (cliente == null)
+        {
+            throw new Exception("Cliente inexistente");
+        }
         return cliente;
     }
-
-    public void DeleteCliente(int id)
+    public void EliminarCliente(int id)
     {
         string query = @"DELETE FROM Cliente WHERE ClienteId = @Id;";
+
         using (SqliteConnection connection = new SqliteConnection(connectionString))
         {
             connection.Open();

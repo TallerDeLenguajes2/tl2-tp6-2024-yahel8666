@@ -1,13 +1,17 @@
 using System.ComponentModel.DataAnnotations; 
-public class ModificarClienteVM
+public class ModificarClienteViewModel
 {
     int clienteId;
+
     string nombre;
+
     string email;
     string telefono;
+
+
     public int ClienteId { get => clienteId; set => clienteId = value; }
     
-    [Required (ErrorMessage = "El nombre es obligatorio.")]
+    [Required(ErrorMessage = "El nombre es obligatorio.")]
     public string Nombre { get => nombre; set => nombre = value; }
 
     [Required(ErrorMessage = "El email es obligatorio.")]
@@ -19,14 +23,17 @@ public class ModificarClienteVM
 
     public string Telefono { get => telefono; set => telefono = value; }
 
-    public ModificarClienteVM()
-    { }
+    public ModificarClienteViewModel()
+    {
 
-    public ModificarClienteVM(Cliente cliente)
+    }
+
+    public ModificarClienteViewModel(Cliente cliente)
     {
         clienteId = cliente.ClienteId;
         nombre = cliente.Nombre;
         email = cliente.Email;
         telefono = cliente.Telefono;
+
     }
 }

@@ -1,16 +1,30 @@
 @model List<Producto>
 
-<div style="text-align: center; margin-top: 20px;">
-    <a asp-controller="Producto" asp-action="CrearProducto" class="btn btn-lila">Crear Producto</a>
-</div>
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger text-center mb-4">
+        <p>@ViewBag.ErrorMessage</p>
+    </div>
+}
 
-<h2>Lista de Productos</h2>
-<table class="table table-bordered">
-    <thead>
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger text-center mb-4" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<h2 class="text-center text-primary mb-4">Lista de Productos</h2>
+
+<table class="table table-striped table-hover table-bordered shadow-sm rounded">
+    <thead class="table-light">
         <tr>
-            <th> Descripción </th>
+            <th>Descripción</th>
             <th>Precio</th>
-            <th>Acciones</th>
+            @if ((bool)ViewData["EsAdmin"])
+            {
+                <th>Acciones</th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -18,16 +32,22 @@
         {
             <tr>
                 <td>@producto.Descripcion</td>
-                <td>$ @producto.Precio</td>
-                 <td>
-                    <a asp-controller="Producto" asp-action="CargarDatos" asp-route-id="@producto.IdProducto" class="btn btn-warning"> Editar</a>
-                
-                    <a asp-controller="Producto" asp-action="VerificarEliminacion" asp-route-id="@producto.IdProducto" class="btn btn-warning"> Eliminar</a>
-                </td> 
+                <td>$ @producto.Precio.ToString("0.00")</td>
+                @if ((bool)ViewData["EsAdmin"])
+                {
+                    <td>
+                        <a asp-controller="Producto" asp-action="ModificarProducto" asp-route-id="@producto.IdProducto" class="btn btn-warning btn-sm rounded-pill me-2">Editar</a>
+                        <a asp-controller="Producto" asp-action="EliminarProducto" asp-route-id="@producto.IdProducto" class="btn btn-danger btn-sm rounded-pill">Eliminar</a>
+                    </td>
+                }
             </tr>
         }
     </tbody>
 </table>
 
-
-
+<div class="text-center mt-4">
+    @if ((bool)ViewData["EsAdmin"])
+    {
+        <a asp-controller="Producto" asp-action="AltaProducto" class="btn btn-success btn-lg rounded-pill px-4 py-2">Alta Producto</a>
+    }
+</div>

@@ -1,12 +1,12 @@
 using System.ComponentModel.DataAnnotations; 
-public class ModificarPresupuestoVM
+public class ModificarPresupuestoViewModel
 {
     int idPresupuesto;
     int idCliente;
 
     DateTime fechaCreacion;
 
-    public ModificarPresupuestoVM()
+    public ModificarPresupuestoViewModel()
     {
     }
 

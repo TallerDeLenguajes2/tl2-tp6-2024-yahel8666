@@ -1,13 +1,13 @@
 using System.ComponentModel.DataAnnotations; 
-public class CrearPresupuestoVM
+public class AltaPresupuestoViewModel
 {
     int idCliente;
 
     DateTime fechaCreacion;
 
-    public CrearPresupuestoVM()
-    {}
-    
+    public AltaPresupuestoViewModel()
+    {
+    }
     [Required(ErrorMessage = "El cliente es obligatorio.")]
     public int IdCliente { get => idCliente; set => idCliente = value; }
 

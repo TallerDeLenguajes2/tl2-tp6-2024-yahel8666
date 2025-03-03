@@ -1,12 +1,11 @@
-/*Los metodos declarados en una interfaz 
-siempre son implicitamente publicos*/
-
 public interface IPresupuestoRepository
 {
-    void Create(Presupuesto p); 
-    List<Presupuesto> ListarPresupuestos(); 
-    Presupuesto GetPresupuestoById(int id); 
-    bool EliminarPresupuesto(int id);
-
-    bool AgregarProducto(int id); 
-}; 
+    
+    public void CrearPresupuesto(Presupuesto presupuesto);
+    public List<Presupuesto> ObtenerPresupuestos();
+    public Presupuesto ObtenerPresupuestoPorId(int id);
+    public void AgregarProducto(int idPresupuesto, int idProducto, int cantidad);
+    public void EliminarProducto(int idPresupuesto, int idProducto);
+    public void ModificarPresupuesto(Presupuesto presupuesto);
+    public void EliminarPresupuestoPorId(int idPresupuesto);
+}

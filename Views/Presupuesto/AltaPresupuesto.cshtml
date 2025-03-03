@@ -1,4 +1,4 @@
-@model ModificarPresupuestoViewModel
+@model AltaPresupuestoViewModel
 
 @if (ViewBag.ErrorMessage != null)
 {
@@ -7,12 +7,8 @@
         </div>
 }
 
-
-<h2>Editar Presupuesto</h2>
-
-<form asp-controller="Presupuestos" asp-action="ModificarPresupuesto" method="post">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <div class="mb-3">
+<form asp-asp-controller="Presupuestos" asp-action="CrearPresupuesto" method="post" class="container mt-4">
+    <div class="mb-3">
         <label for="IdCliente" class="form-label">Cliente</label>
         <select name="IdCliente" class="form-control" required>
             <option value="">Seleccione un cliente</option>
@@ -23,18 +19,13 @@
         </select>
         <span asp-validation-for="IdCliente" class="text-danger"></span>
     </div>
-
-    <div class="form-group">
+    <div class="mb-3">
         <label asp-for="FechaCreacion" class="form-label">Fecha de Creación</label>
-        <input asp-for="FechaCreacion" type="date" class="form-control" value="@Model.FechaCreacion" />
+        <input asp-for="FechaCreacion" type="date" class="form-control" required/>
         <span asp-validation-for="FechaCreacion" class="text-danger"></span>
     </div>
-
-    <input type="hidden" asp-for="IdPresupuesto" value = "@Model.IdPresupuesto"/>
-
-    <div class="form-group">
-        <input type="submit" value="Guardar" class="btn btn-primary" />
-    </div>
+    <button type="submit" class="btn btn-primary">Guardar Presupuesto</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
 </form>
 
 

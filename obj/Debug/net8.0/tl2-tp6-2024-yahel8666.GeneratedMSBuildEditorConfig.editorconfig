@@ -9,99 +9,107 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = tl2_tp6_2024_yahel8666
 build_property.RootNamespace = tl2_tp6_2024_yahel8666
-build_property.ProjectDir = c:\Users\operador\Downloads\Programador-Universitario\2° AÑO\Taller2\Practica\tl2-tp6-2024-yahel8666\
+build_property.ProjectDir = C:\Users\yahel\Downloads\tl2-tp6-2024-yahel8666\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\operador\Downloads\Programador-Universitario\2° AÑO\Taller2\Practica\tl2-tp6-2024-yahel8666
+build_property.MSBuildProjectDirectory = C:\Users\yahel\Downloads\tl2-tp6-2024-yahel8666
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Clientes/CrearCliente.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQ3JlYXJDbGllbnRlLmNzaHRtbA==
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Clientes/AltaCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQWx0YUNsaWVudGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Clientes/EliminarCliente.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Clientes/EliminarCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRWxpbWluYXJDbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Clientes/Index.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Clientes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Clientes/ModificarCliente.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Clientes/ModificarCliente.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcTW9kaWZpY2FyQ2xpZW50ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Home/Index.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Home/Privacy.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Presupuesto/AgregarProductoAPresupuesto.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Login/CrearUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cQ3JlYXJVc3VhcmlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Presupuesto/AgregarProductoAPresupuesto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cQWdyZWdhclByb2R1Y3RvQVByZXN1cHVlc3RvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Presupuesto/DetallesDelPresupuesto.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Presupuesto/AltaPresupuesto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cQWx0YVByZXN1cHVlc3RvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Presupuesto/DetallesDelPresupuesto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cRGV0YWxsZXNEZWxQcmVzdXB1ZXN0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Presupuesto/EliminarPresupuesto.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Presupuesto/EliminarPresupuesto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cRWxpbWluYXJQcmVzdXB1ZXN0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Presupuesto/EliminarProductoAPresupuesto.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Presupuesto/EliminarProductoAPresupuesto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cRWxpbWluYXJQcm9kdWN0b0FQcmVzdXB1ZXN0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Presupuesto/Index.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Presupuesto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Presupuesto/ModificarPresupuesto.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Presupuesto/ModificarPresupuesto.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cTW9kaWZpY2FyUHJlc3VwdWVzdG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Presupuesto/NuevoPresupuesto.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJlc3VwdWVzdG9cTnVldm9QcmVzdXB1ZXN0by5jc2h0bWw=
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Producto/AltaProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQWx0YVByb2R1Y3RvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Producto/CargarDatos.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQ2FyZ2FyRGF0b3MuY3NodG1s
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Producto/EliminarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cRWxpbWluYXJQcm9kdWN0by5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Producto/CrearProducto.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cQ3JlYXJQcm9kdWN0by5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Producto/Index.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Producto/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Producto/VerificarEliminacion.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cVmVyaWZpY2FyRWxpbWluYWNpb24uY3NodG1s
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Producto/ModificarProducto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdG9cTW9kaWZpY2FyUHJvZHVjdG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Shared/Error.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/_ViewImports.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/_ViewStart.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/operador/Downloads/Programador-Universitario/2° AÑO/Taller2/Practica/tl2-tp6-2024-yahel8666/Views/Shared/_Layout.cshtml]
+[C:/Users/yahel/Downloads/tl2-tp6-2024-yahel8666/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-z4w0ix8847

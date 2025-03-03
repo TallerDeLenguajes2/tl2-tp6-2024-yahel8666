@@ -1,14 +1,15 @@
-
 using Microsoft.AspNetCore.Mvc;
-public class ClientesController : Controller
+public class ProductoController : Controller
 {
-    private readonly ILogger<ClientesController> _logger;
-    private IClientesRepository _clientesRepository;
 
-    public ClientesController(ILogger<ClientesController> logger, IClientesRepository clientesRepository)
+    private readonly ILogger<ProductoController> _logger;
+
+    private IProductosRepository _productosRepository;
+
+    public ProductoController(ILogger<ProductoController> logger, IProductosRepository productosRepository)
     {
         _logger = logger;
-        _clientesRepository = clientesRepository;
+        _productosRepository = productosRepository;
     }
     public IActionResult Index()
     {
@@ -17,7 +18,7 @@ public class ClientesController : Controller
             if (!IsLoggedIn()) return RedirectToAction("Index", "Login");
 
             ViewData["EsAdmin"] = HttpContext.Session.GetString("AccessLevel") == "Admin";
-            return View(_clientesRepository.ObtenerClientes());
+            return View(_productosRepository.ObtenerProductos());
         }
         catch (Exception ex)
         {
@@ -27,7 +28,7 @@ public class ClientesController : Controller
     }
 
     [HttpGet]
-    public IActionResult AltaCliente()
+    public IActionResult AltaProducto()
     {
         try
         {
@@ -44,12 +45,13 @@ public class ClientesController : Controller
         catch (Exception ex)
         {
             _logger.LogError(ex.ToString());
+            ViewBag.ErrorMessage = "No se pudo cargar el formulario de alta de producto.";
             return RedirectToAction("Index");
         }
     }
 
     [HttpPost]
-    public IActionResult CrearCliente(AltaClienteViewModel clienteVM)
+    public IActionResult CrearProducto(AltaProductoViewModel productoVM)
     {
         try
         {
@@ -64,8 +66,8 @@ public class ClientesController : Controller
             if (!ModelState.IsValid)
                 return RedirectToAction("Index");
 
-            var cliente = new Cliente(clienteVM);
-            _clientesRepository.CrearCliente(cliente);
+            var producto = new Producto(productoVM);
+            _productosRepository.CrearProducto(producto);
             return RedirectToAction("Index");
         }
         catch (Exception ex)
@@ -76,12 +78,11 @@ public class ClientesController : Controller
     }
 
     [HttpGet]
-    public IActionResult ModificarCliente(int id)
+    public IActionResult ModificarProducto(int id)
     {
         try
         {
-            if (!IsLoggedIn())
-                return RedirectToAction("Index", "Login");
+            if (!IsLoggedIn()) return RedirectToAction("Index", "Login");
 
             if (!IsAdmin())
             {
@@ -89,23 +90,25 @@ public class ClientesController : Controller
                 return RedirectToAction("Index");
             }
 
-            var cliente = _clientesRepository.ObtenerCliente(id);
-            var clienteVM = new ModificarClienteViewModel(cliente);
-            return View(clienteVM);
+            var producto = _productosRepository.ObtenerProductoPorId(id);
+            var productoVM = new ModificarProductoViewModel(producto);
+            return View(productoVM);
         }
         catch (Exception ex)
         {
             _logger.LogError(ex.ToString());
+            ViewBag.ErrorMessage = "No se pudo cargar el formulario de modificación del producto.";
             return RedirectToAction("Index");
         }
     }
 
     [HttpPost]
-    public IActionResult ModificarCliente(ModificarClienteViewModel clienteVM)
+    public IActionResult ModificarProducto(ModificarProductoViewModel productoVM)
     {
         try
         {
             if (!IsLoggedIn()) return RedirectToAction("Index", "Login");
+
             if (!IsAdmin())
             {
                 TempData["ErrorMessage"] = "No tienes permisos para realizar esta acción.";
@@ -115,19 +118,42 @@ public class ClientesController : Controller
             if (!ModelState.IsValid)
                 return RedirectToAction("Index");
 
-            var cliente = new Cliente(clienteVM);
-            _clientesRepository.ModificarCliente(cliente);
+            var producto = new Producto(productoVM);
+            _productosRepository.ModificarProducto(producto);
             return RedirectToAction("Index");
         }
         catch (Exception ex)
         {
             _logger.LogError(ex.ToString());
+            ViewBag.ErrorMessage = "No se pudo modificar el producto.";
             return RedirectToAction("Index");
         }
     }
 
     [HttpGet]
-    public IActionResult EliminarCliente(int id)
+    public IActionResult EliminarProducto(int id)
+    {
+        try
+        {
+            if (!IsLoggedIn()) return RedirectToAction("Index", "Login");
+            if (!IsAdmin())
+            {
+                TempData["ErrorMessage"] = "No tienes permisos para realizar esta acción.";
+                return RedirectToAction("Index");
+            }
+
+            return View(_productosRepository.ObtenerProductoPorId(id));
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex.ToString());
+            ViewBag.ErrorMessage = "No se pudo cargar el producto para eliminar.";
+            return RedirectToAction("Index");
+        }
+    }
+
+    [HttpGet]
+    public IActionResult EliminarProductoPorId(int id)
     {
         try
         {
@@ -139,29 +165,7 @@ public class ClientesController : Controller
                 return RedirectToAction("Index");
             }
 
-            return View(_clientesRepository.ObtenerCliente(id));
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex.ToString());
-            return RedirectToAction("Index");
-        }
-    }
-
-    [HttpGet]
-    public IActionResult EliminarClientePorId(int id)
-    {
-        try
-        {
-            if (!IsLoggedIn()) return RedirectToAction("Index", "Login");
-
-            if (!IsAdmin())
-            {
-                TempData["ErrorMessage"] = "No tienes permisos para realizar esta acción.";
-                return RedirectToAction("Index");
-            }
-
-            _clientesRepository.EliminarCliente(id);
+            _productosRepository.EliminarProductoPorId(id);
             return RedirectToAction("Index");
         }
         catch (Exception ex)

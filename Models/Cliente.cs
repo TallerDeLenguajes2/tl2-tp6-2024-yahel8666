@@ -1,7 +1,9 @@
 public class Cliente
 {
     int clienteId;
+
     string nombre;
+
     string email;
     string telefono;
 
@@ -14,16 +16,16 @@ public class Cliente
     {
 
     }
-    public Cliente(ModificarClienteVM clienteVM)
+    public Cliente(AltaClienteViewModel clienteVM)
     {
-        ClienteId = clienteVM.ClienteId;
         Nombre = clienteVM.Nombre;
         Email = clienteVM.Email;
         Telefono = clienteVM.Telefono;
     }
 
-    public Cliente(CrearClienteVM clienteVM)
+    public Cliente(ModificarClienteViewModel clienteVM)
     {
+        ClienteId = clienteVM.ClienteId;
         Nombre = clienteVM.Nombre;
         Email = clienteVM.Email;
         Telefono = clienteVM.Telefono;
