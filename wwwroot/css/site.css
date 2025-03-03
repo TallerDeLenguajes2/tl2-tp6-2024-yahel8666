@@ -1,0 +1,52 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  
+}
+
+
+.btn-lila {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #c084fc; /* Color lila */
+  border: none;
+  border-radius: 50px; /* Hace que el botón sea redondo */
+  cursor: pointer;
+  text-decoration: none; /* Elimina el subrayado */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-lila:hover {
+  background-color: #9d6dfc; /* Color lila más oscuro al pasar el cursor */
+  transform: scale(1.05); /* Efecto de agrandamiento ligero */
+  color: white;
+
+}
+
+.btn-lila:active {
+  background-color: #7c4dfc; 
+  transform: scale(0.95); /* Efecto de reducción al presionar */
+  color: white;
+
+}

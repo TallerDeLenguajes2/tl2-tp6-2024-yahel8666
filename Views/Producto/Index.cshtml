@@ -1,0 +1,33 @@
+@model List<Producto>
+
+<div style="text-align: center; margin-top: 20px;">
+    <a asp-controller="Producto" asp-action="CrearProducto" class="btn btn-lila">Crear Producto</a>
+</div>
+
+<h2>Lista de Productos</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th> Descripción </th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var producto in Model)
+        {
+            <tr>
+                <td>@producto.Descripcion</td>
+                <td>$ @producto.Precio</td>
+                 <td>
+                    <a asp-controller="Producto" asp-action="CargarDatos" asp-route-id="@producto.IdProducto" class="btn btn-warning"> Editar</a>
+                
+                    <a asp-controller="Producto" asp-action="VerificarEliminacion" asp-route-id="@producto.IdProducto" class="btn btn-warning"> Eliminar</a>
+                </td> 
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
